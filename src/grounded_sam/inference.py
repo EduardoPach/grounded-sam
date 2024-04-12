@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 from transformers import AutoModelForMaskGeneration, AutoProcessor, pipeline
 
-from utils import DetectionResult, get_boxes, load_image, refine_masks
+from grounded_sam.utils import DetectionResult, get_boxes, load_image, refine_masks
 
 def detect(
     image: Image.Image,
