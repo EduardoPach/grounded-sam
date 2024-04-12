@@ -2,6 +2,7 @@ import random
 from typing import List, Union, Optional, Dict
 
 import cv2
+import numpy as np
 from PIL import Image
 import plotly.express as px
 import matplotlib.pyplot as plt
