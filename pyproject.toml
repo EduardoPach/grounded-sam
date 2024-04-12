@@ -1,0 +1,19 @@
+[project]
+name = "grounded-sam"
+version = "0.1.0"
+description = "A simple way to combine GroundingDINO and SAM using the transformers library"
+authors = [
+    {name = "Eduardo Pacheco", email = "pacheco.eduardo.silva@gmail.com"},
+]
+dependencies = []
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
