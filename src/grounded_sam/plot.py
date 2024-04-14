@@ -89,7 +89,7 @@ def plot_detections_plotly(
     image: np.ndarray, 
     detections: List[DetectionResult], 
     class_colors: Optional[Dict[str, str]] = None
-) -> None:
+) -> go.Figure:
     # If class_colors is not provided, generate random colors for each class
     if class_colors is None:
         num_detections = len(detections)
@@ -170,6 +170,5 @@ def plot_detections_plotly(
         )
     )
 
-    # Show plot
-    fig.show()
+    return fig
 
