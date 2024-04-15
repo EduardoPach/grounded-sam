@@ -88,7 +88,8 @@ def random_named_css_colors(num_colors: int) -> List[str]:
 def plot_detections_plotly(
     image: np.ndarray, 
     detections: List[DetectionResult], 
-    class_colors: Optional[Dict[str, str]] = None
+    allow_box_selection: bool = False,
+    class_colors: Optional[Dict[str, str]] = None,
 ) -> go.Figure:
     # If class_colors is not provided, generate random colors for each class
     if class_colors is None:
@@ -149,18 +150,22 @@ def plot_detections_plotly(
     ]
     button_shapes = button_shapes + [dict(label="All", method="relayout", args=["shapes", sum(shapes, [])])]
 
+    if allow_box_selection:
+        fig.update_layout(
+            updatemenus=[
+                dict(
+                    type="buttons",
+                    direction="up",
+                    buttons=button_shapes
+                )
+            ]
+        )
+
+
     fig.update_layout(
         xaxis=dict(visible=False),
         yaxis=dict(visible=False),
-        # margin=dict(l=0, r=0, t=0, b=0),
         showlegend=True,
-        updatemenus=[
-            dict(
-                type="buttons",
-                direction="up",
-                buttons=button_shapes
-            )
-        ],
         legend=dict(
             orientation="h",
             yanchor="bottom",
